@@ -5,7 +5,12 @@ const TodoStyled = styled.div`
     width: 80%;
     background-color: green;
     height: 20%;
-    margin: 0 5%;
+    margin: 2.5% 5%;
+    
+    &.completed {
+        background-color: yellow;
+    }
+    
 `
 
 const Todo = props => {

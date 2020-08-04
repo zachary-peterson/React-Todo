@@ -4,6 +4,22 @@ import styled from 'styled-components';
 const TheForm = styled.form`
     display: flex;
     width: 100%;
+    text-align: center;
+
+    input {
+        margin: 0 auto;
+        width: 80%;
+        height: 10vh;
+        font-size: 2rem;
+    }
+
+    button {
+        margin: 0 auto;
+        width: 35%;
+        background-color: purple;
+        color: white;
+        height: 10vh;
+    }
 `
 
 class TodoForm extends React.Component  {
@@ -24,6 +40,9 @@ class TodoForm extends React.Component  {
         e.preventDefault();
         // Need to add a to-do function to App.js
         this.props.addTodo(this.state.todoText);
+        this.setState({
+            todoText: ''
+        });
     }
 
     render () {

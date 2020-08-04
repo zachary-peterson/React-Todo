@@ -12,7 +12,9 @@ const Styledcontainer = styled.div`
   flex-flow: wrap;
 
   h1 {
-    color: white;
+    color: orange;
+    border: 2px solid red;
+    padding: 2.5%;
   }
 `
 
@@ -63,7 +65,11 @@ class App extends React.Component {
   clearCompleted = completedTask => {
     
     this.setState({
-      tasks: this.state.tasks.filter()
+      tasks: this.state.tasks.filter(task => {
+        if (task.completed !== true){
+          return task;
+        }
+      })
     })
   }
 
@@ -83,7 +89,7 @@ class App extends React.Component {
     return (
       <Styledcontainer>
         <h1 onClick={() => this.setState({})}>Welcome to your Todo App!</h1>
-        <TodoList toggleTask={this.toggleTask} tasks={this.state.tasks} />
+        <TodoList clearCompleted={this.clearCompleted} toggleTask={this.toggleTask} tasks={this.state.tasks} />
         <TodoForm addTodo={this.addTodo} />
       </Styledcontainer>
     );
